@@ -24,7 +24,8 @@ public class FileController {
     }
 
     @PostMapping(value = "/sftp/batch", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String uploadFilesToFtp2(@RequestPart(value = "files") List<MultipartFile> files, @RequestParam String outputFileName) throws Exception {
+    public String uploadFilesToFtp2(@RequestPart(value = "files") List<MultipartFile> files,
+            @RequestParam String outputFileName) throws Exception {
         final String fileName = fileService.uploadFilesToFtpServer(files, outputFileName);
         return fileName;
     }
